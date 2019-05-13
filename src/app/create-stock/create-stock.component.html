@@ -1,0 +1,46 @@
+<h3>Create Employee</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="stockName">Stock Name</label>
+      <input type="text" class="form-control" id="stockName" minlength="4" required [(ngModel)]="stock.stockName" name="stockName" #stockName="ngModel">
+
+
+
+      <div *ngIf="stockName.invalid && (stockName.dirty || stockName.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="stockName.errors.required">
+          Stock Name is required.
+        </div>
+        <div *ngIf="stockName.errors.minlength">
+          Stock Name must be at least 4 characters long.
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Stock Price</label>
+      <input type="text" class="form-control" id="stockPrice" required [(ngModel)]="stock.stockPrice" name="stockPrice" #stockPrice="ngModel">
+      <div *ngIf="stockPrice.invalid && (stockPrice.dirty || stockPrice.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="stockPrice.errors.required">
+          Stock Price is required.
+        </div>
+      </div>
+
+      </div>
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

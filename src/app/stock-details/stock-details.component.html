@@ -1,0 +1,17 @@
+<h3>Update Stock value</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Stock Name</label>
+      <input type="text" class="form-control" id="stockName" required [(ngModel)]="stock.stockName" name="stockName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Stock Price</label>
+      <input type="text" class="form-control" id="stockPrice" required [(ngModel)]="stock.stockPrice" name="stockPrice">
+    </div>
+
+
+      </form>
+</div>
+
